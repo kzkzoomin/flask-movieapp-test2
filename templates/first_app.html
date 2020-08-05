@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>First app</title>
+        <!-- CSSをロード（bodyのフォント２倍） -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <!-- フォームマクロをインポート -->
+        {% from "_formhelpers.html" import render_field %}
+        <div>What's your name?</div>
+        <form method=post action="/hello">
+            <dl>
+                <!-- app.pyで指定したsayhelloフォームを表示 -->
+                {{ render_field(form.sayhello) }}
+            </dl>
+            <!-- 送信ボタン -->
+            <input type=submit value='Say Hello' name='submit_btn'>
+        </form>
+    </body>
+</html>
